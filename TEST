@@ -1,9 +1,23 @@
-# Information required
+#Information required
 
-# Energy levels (keV)
-0, 
-1, 
-2,
-3,
+#Energy levels (keV)
+0,1332508,2158610,2505748
 
-# Branching fractions
+
+#Branching fractions
+0,0.12,0.002,99.88
+
+#Peak efficiencies
+0,0,0,0
+0.10756144242038194,0,0,0
+0.07667132997949869,0.14371241529735831,0,0
+0.06764440384339478,0.11635692644774909,0.24441663543220665,0
+
+# Energy differences
+#Q
+#1332508 	(1,0)
+#2158610	(2,0)
+#826100		(2,1)
+#2505748	(3,0)
+#1173240	(3,1)
+#347140		(3,2)
