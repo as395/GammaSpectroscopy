@@ -1,11 +1,23 @@
 ## Coding - To Do
-1. ~~set \alpha = 0 for toy system~~
-2. ~~manually compute **A**, **B**, **N**, **M**, **S** to make sure the code works~~
-3. ~~make sure summing works properly, find termination point~~ --> matrix ends when _k=4_ (at most)
-4. evaluate matrices with no summing (use Gilmore as a reference)
-5. find way to read in a text file efficiently
+1. ~~Complete peak efficiency input from TRIUMF~~
+
+2. ~~Make printing of normalized inputs clearer~~
+
+3. ~~Fix labels/energy levels (keV)~~
+
+4. ~~Find resource for Eu-152 decay and summing~~ 
+
+4a. _Put data in text file_
+
+4b. _Test in code and compare_
+
+5. Find out how best to report summing error (percentage?)
 
 ## Writing/Research - To Do
-1. read Knoll 2.3, 10.0-3(e)
-2. write as much as possible!
-3. find physical meanings of **c, e, a, b**
+1. Print Gilmore chapter (so I can finish the example from home)
+
+2. ~~Describe why HPGe detectors are used~~ 
+
+2a. _Describe via Inorganic Chemistry/advanced Physics_ 
+
+3. Keep writing!!
