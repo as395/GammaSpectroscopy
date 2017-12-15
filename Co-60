@@ -23,7 +23,10 @@
 0,0,0,0
 
 #Source disintegration rate - LINE 11
-0,0,0,1
+0,0,0,100000
+
+#Number of detectors - LINE 12
+0,0,0,64
 
 #OPTIONAL ADDITION
 

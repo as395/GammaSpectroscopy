@@ -1,0 +1,35 @@
+#Information required
+
+#Energy levels (keV) - LINE 0
+0,1332.508,2505.748
+
+
+#Feeding fractions - LINE 1
+0,0.12,99.88
+
+#Branching fractions - LINES 2-6
+0,0,0
+99.9826,0,0
+0.000002,99.85,0
+
+#Total efficiency - LINE 7
+,,0.4
+
+#Conversion Coefficients - LINES 8-12
+0,0,0
+0,0,0
+0,0,0
+
+#Source disintegration rate - LINE 11
+,,100
+
+#Number of detectors - LINE 
+0,0,64
+
+#OPTIONAL ADDITION
+
+#Peak efficiencies - LINES 12-15
+#0,0,0,0
+#0.10756144242038194,0,0,0
+#0.07667132997949869,0.14371241529735831,0,0
+#0.06764440384339478,0.11635692644774909,0.24441663543220665,0
