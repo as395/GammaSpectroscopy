@@ -1,0 +1,18 @@
+# Information required
+
+# Total efficiency - LINE 0
+0.4
+
+# Source disintegration rate - LINE 1
+100000
+
+# Number of detectors - LINE 2
+1
+
+# OPTIONAL ADDITION (if NOT using separate efficiency sheet)
+
+#Co-60 Peak efficiencies - LINES 3-6
+#0,0,0,0
+#0.10756144242038194,0,0,0
+#0.07667132997949869,0.14371241529735831,0,0
+#0.06764440384339478,0.11635692644774909,0.24441663543220665,0
