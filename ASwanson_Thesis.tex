@@ -1,9 +1,6 @@
 
 %% Preamble
-%%
-% \documentclass{<something>} must begin each LaTeX document
 \documentclass[12pt,twoside]{reedthesis}
-% Check out CTAN to see: http://www.ctan.org/
 
 \usepackage{graphicx,latexsym} 
 \usepackage{amssymb,amsthm,amsmath}
@@ -18,7 +15,7 @@
 %\usepackage{biblatex-chicago}
 %\bibliography{thesis}
 
-\usepackage{times} % other fonts are available like times, bookman, charter, palatino
+\usepackage{times} 
 
 \title{Application of a correction scheme for coincidence summing in $\gamma$-ray spectroscopy}
 \author{Amanda Elise Swanson}
@@ -55,21 +52,20 @@
 %    \chapter*{Preface}
     
     \chapter*{List of Abbreviations}
-		You can always change the way your abbreviations are formatted. Play around with it yourself, use tables, or come to CUS if you'd like to change the way it looks. You can also completely remove this chapter if you have no need for a list of abbreviations. Here is an example of what this could look like:
 
-%	\begin{table}[h]
-%	\centering % You could remove this to move table to the left
-%	\begin{tabular}{ll}
-%		\textbf{ABC}  	&  American Broadcasting Company \\
-%		\textbf{CBS}  	&  Columbia Broadcasting System\\
-%		\textbf{CDC}  	&  Center for Disease Control \\
-%		\textbf{CIA}  	&  Central Intelligence Agency\\
-%		\textbf{CLBR} 	&  Center for Life Beyond Reed\\
-%		\textbf{CUS}  	&  Computer User Services\\
-%		\textbf{FBI}  	&  Federal Bureau of Investigation\\
-%		\textbf{NBC}  	&  National Broadcasting Corporation\\
-%	\end{tabular}
-%	\end{table}
+	\begin{table}[h]
+	\centering % You could remove this to move table to the left
+	\begin{tabular}{ll}
+		\textbf{ABC}  	&  American Broadcasting Company \\
+		\textbf{CBS}  	&  Columbia Broadcasting System\\
+		\textbf{CDC}  	&  Center for Disease Control \\
+		\textbf{CIA}  	&  Central Intelligence Agency\\
+		\textbf{CLBR} 	&  Center for Life Beyond Reed\\
+		\textbf{CUS}  	&  Computer User Services\\
+		\textbf{FBI}  	&  Federal Bureau of Investigation\\
+		\textbf{NBC}  	&  National Broadcasting Corporation\\
+	\end{tabular}
+	\end{table}
 	
 
 %    \tableofcontents
@@ -80,8 +76,7 @@
 
 % If your abstract is longer than a page, there may be a formatting issue.
     \chapter*{Abstract}
-	This is where I will talk about what I actually accomplished
-	
+        T. M. Semkow's method for correcting peak intensity ratios in gamma ray spectroscopy due to summing in detectors was applied to a python code ...	
 %	\chapter*{Dedication}
 
   \mainmatter % here the regular arabic numbering starts
@@ -96,7 +91,7 @@
 % \singlespacing
 % \onehalfspacing
 % \doublespacing
-    \chapter{Nuclear Decay and Radiation Detection}
+    \section{Nuclear Decay and Radiation Detection}
 Introduce the significance and use of nuclear decay!
 \subsection{Isotope Terminology}
      \begin{equation}
@@ -105,21 +100,20 @@ Introduce the significance and use of nuclear decay!
      \end{equation}
      
     $A$ refers to nucleons, $Z$ refers to protons, and $N$ refers to neutron number. $N$ is frequently omitted for the sake of clarity, since $N = Z - A$.
-\section{Types of decay}
+\subsection{Types of decay}
   Charged particle radiation (i.e. heavy ions or electrons) interact iwth matter primarily via coulomb interactions, whereas neutral particle radiation interacts with the nuclei of atoms, often creating secondary charged particles. \cite{Knoll} Since this thesis focuses of gamma radiation, I will further describe how gamma radiation affects matter later on.
   	
-\section{Decay schemes}
+\subsection{Decay schemes}
  As shown in figure \ref{decay}, the information needed to construct a decay scheme for a radioactive substance includes the feeding fractions, which dictate the ratio of gamma rays initially deposited to each energy level, and the branching ratios to determine the most likely pathways for a gamma ray to decay. The decay scheme...
     	\begin{figure}[h!]
 	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
 	    \includegraphics{decayscheme_semkow.png}
 	     \caption{A typical decay scheme including the feeding fractions ($f$), the energy levels ($n$), and the possible decay branches ($x$). Image taken from Semkow.}
 	 \label{decay}
 	\end{figure}
 
   
-\section{Gamma radiation - interactions with matter}
+\subsection{Gamma radiation - interactions with matter}
  Gamma radiation interacts with matter in three significant ways: by photoelectric absorption, Compton scattering, and pair producion \cite{Knoll}. These interactions dominate at low, mid, and high energy ranges, respectively \cite{Gilmore}.
 
 Photoelectric:  As shown in figure \ref{photo}, the photon is completely absorbed and a an energetic ``photoelectron" is ejected from the innermost shell of an atom. Following this ejection, an electrons from a higher valence shell emits a photon when relaxing to the lower unoccupied shell.
@@ -148,9 +142,9 @@ Compton: Via direct interaction with an electron, the gamma ray loses part of it
      E_{\gamma} = E_{e} - E_{\gamma}\left(\frac{1}{1+ \frac{E_{\gamma}(1-cos\theta)}{mc^{2}}}\right)
      \label{photoelec}
      \end{equation}
-	It is simplest to assume that the electrons in these interactions are not tightly bound to a nucleus, because most will be in the outer valence shells and will be fairly easy to interact with. Probability of occurrance increases linearly with Z, since for higher-charge atoms there are more electrtons to interact with.
+	It is simplest to assume that the electrons in these interactions are not tightly bound to a nucleus, because most will be in the outer valence shells and will be fairly easy to interact with. Probability of occurrance increases linearly with Z, since for higher-charge atoms there are more electrons to interact with.
 	
-Pair production: converion of gamma-ray to electron/positron pair. Direct interaction with the nucleus. This can only occur if the incident $\gamma$-ray exceeds twice the energy of a rest-mass electron.
+Pair production: conversion of gamma-ray to electron/positron pair. Direct interaction with the nucleus. This can only occur if the incident $\gamma$-ray exceeds twice the energy of a rest-mass electron.
 
 \subsection{Attenuation coefficients}
 ``Probability of occurrance per unit path length of the absorber" \cite{Knoll}.
@@ -159,44 +153,314 @@ Pair production: converion of gamma-ray to electron/positron pair. Direct intera
      \label{attenuation}
      \end{equation}
 
-\section{Radiation Detection}
+\subsection{Radiation Detection}
 	Since gamma-rays are not charged, it is necessary to force them to interact with material to create ``fast electrons", which provide a useful signal with measureable energies. Ideally, a detector would be consistently capable of converting a gamma ray's full energy into an electron, but as discussed above, there is significant energy loss in the particle interactions. There is also further energy loss of the fast electrons via bremsstrahlung and ionization within the absorber material.
 	
 	Two requirements: the detector must 1) have a high probability of $\gamma$ interactions and 2) must be capable of effectively detecting the secondary electrons. It should also be large enough to prevent loss of secondary electrons scattered at large angles, and thick enough to ensure that most interactions are not scattered out of the detector.
-\section{Quantum Mechanical Observations}
+\subsection{Quantum Mechanical Observations (?)}
   Uncertainty principle, spin, parity, static vs. dynamic properties
   
   Need to fill out more here!
   
-  \chapter{Coincidence Summing}
-Summing in/out as a result of energy captures hitting the detector at the same time (the energy resulting from two added $\gamma$-rays artificially inflates thepeak fo teh summed energies, while reducing the peaks of teh actual energies absorbed by the detector).
+\chapter{Measuring the Impact of Coincidence Summing}
+ 
+\section{Parameters Affecting Coincidence Summing}
+Summing in and/or out is a result of multiple gamma emissions hitting a detector at nearly the same time. The lifetimes of energy states populated by $\beta^{-}$ decay have lifetimes that are shorter than the time needed for a detector to distinguish two separate emissions (timescale?). 
 
-Major points about True Coincidence Summing (TCS):
+In the simplest case, two coincident $\gamma$-rays hit a detector at once. In this case, the summed energy delivered to the detector corresponds to a reduction of measured counts for each photopeak, or summing out of both peaks. If the value of the summed energies matches the energy of another photopeak in the spectrum, as shown in Figure \ref{sum_in}, this summing also contributes to an artificially inflated measure for the larger photopeak, or summing in.
 
-``• It usually results in lower full-energy peak areas.
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=12cm]{summingin.png}
+	\caption{Simple demonstration of how peak areas for gamma rays of different energies are affected by coincidence summing. a) Measured peak areas without summing, b) Measured peaks with coincidence summing; counts of E$_{1}$ and E$_{2}$ are reduced, and the counts for E$_{3}$ are increased.}
+\label{sum_in}
+\end{figure}
 
-• It gets worse the closer the source is to the detector.
+Summing out occurs more frequently than summing in, so it is expected that summing would produce fewer total photopeak counts over the spectrum. This is because summing in requires a simultaneous detection of two full energy gamma-rays to increase the counts of a gamma ray with higher energy, whereas a gamma-ray can sum out if it is detected at the same time as any other additional energy, such as an emitted gamma-ray that has undergone Compton scattering or Bremsstrahlung.
 
-• It gets worse the larger the detector and is worst of all
-when using a well detector.
+The degree of summing depends on parameters of the source producing gamma rays as well as the detector; since the summing is dependent on the probability that two gamma-rays will be detected in a crystal at the same time, and the direction of their emissions are random, the subtended angle of the detector with respect to the source should be minimized to reduce the amount of summing. As shown in figure \ref{angle}, detectors positioned nearer to the source (with ``close geometries") will experience a larger number of coincident gamma rays than those farther away, and increasing the number of individual detectors for a surface area will also reduce the probability of simultaneous detection of two gamma-rays without sacrificing the total number of counts.
 
-• It may be worse if a detector with a thin window is
-used because the X-rays that contribute to the summing
-will not be absorbed.
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=12cm]{detector_angles.png}
+	\caption{Simple demonstration of the impact of detector geometry on the degree of coincidence summing. Individual detectors are shown as grey panels, and the source is represented as a ball. a) A large detector close to the source. b) A large detector farther away from the source. c) Three small detectors far away from the source.}
+\label{angle}
+\end{figure}
 
-• It can be expected whenever nuclides with a complex
-decay scheme are measured.
+A summary of parameters affecting the degree of true coincidence summing for an experiment is described in G. Gilmore's textbook on \textit{Practical Gamma Ray Spectroscopy}:
 
-• The degree of summing is not dependent upon count rate." \cite{Gilmore}
+``- [Summing] usually results in lower full-energy peak areas," since summing out does not necessarily produce summing in,
+
+``- it gets worse the closer the source is to the detector," since a wider angle of separation between simulnateously emitted gamma rays can still result in coincident detection,
+
+``- it gets worse the larger the detector (and is worst of all when using a well detector)," since large detector surface areas increase the number of coincident detections,
+
+``- it may be worse if a detector with a thin window is used because the X-rays that contribute to the summing will not be absorbed," and if low energy gamma rays are not absorbed before detection, they will contribute to more summing out,
+
+``- it can be expected whenever nuclides with a complex decay scheme are measured," since a greater number of cascading gamma emissions will result in more summing, and
+
+``- The degree of summing is not dependent upon count rate." \cite{Gilmore}
 
 \section{Mathematical Corrections}
-  Gilmore, 8.11:
 
-\textbf{Differences between $\gamma$-ray and X-ray?}
+\section{Semkow's Matrix Method}
 
-\textbf{Where can I find R? It varies as a function of decay branch, but the average should be known..?}
+Semkow's method is particularly useful to describe the impact of 
 
-	\chapter{3. Setup for Correction Scheme}
+\begin{align}
+c_{ji} &= \frac{x_{ji}}{1+\alpha_{ji}},\\
+a_{ji} &= c_{ji}\epsilon^{p}_{ji},\\
+e_{ji} &= c_{ji}\epsilon^{t}_{ji},\\
+b_{ji} &= x_{ji}-e_{ji},
+\label{Sdefinitions}
+\end{align}
+
+\section{Simple Coincidence Summing}
+
+To determine the degree of coincidence summing for a sample, it is useful to develop a mathematical understanding of how summing in and out affects the probability of photopeak detection. A simple example will be examined using two methods of summing corrections; the simple mathematical correction suggested by G. Gilmore in \textit{Practical Gamma Ray Spectroscopy}, and a probabilistic examination using terms found in T. M. Semkow's correction method in \textit{Coincidence summing in $\gamma$-ray spectroscopy}.
+
+For the purposes of this example, we will assume that the conversion coefficients for all gamma rays are 0 (\textbf{$\alpha$} = $0$). Table \ref{probabilities} (located in the ``Summary" subsection below) describes the terms necessary to describe gamma ray emission and detection in the following analysis, and elucidates the source of each term.
+
+The simplest decay scheme that necessarily involves coincidence summing contains two excited energy states, as shown in Figure \ref{simple}. $\beta^{-}$ decay populates both excited states, producing emissions of  $\gamma_{1}$, $\gamma_{2}$, and  $\gamma_{3}$, and coincident photopeak detections of $\gamma_{1}$ and $\gamma_{2}$ can sum to produce a false count of $\gamma_{3}$. 
+
+ %\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=6cm]{simple_scheme.png}
+%	\caption{Simple decay scheme producing coincidence summing. $\gamma_{\ell,k}$ denotes the gamma emission from state $n_{\ell}$ to $n_{k}$, the feeding fractions (f$_{\ell}$) describe the ratio of initial electron populations of each energy state via $\beta^{-}$ decay, and the branching fractions ($x_{\ell,k}$) describe the probabilities of emissions for $\gamma$ rays from the $n_{\ell}$ energy state.}
+%\label{simple}
+%\end{figure}
+
+In Figure \ref{simple}, $\gamma_{\ell,k}$ denotes a gamma emission produced by an electron relaxing from state $n_{\ell}$ to $n_{k}$. The initial population of each energy state via $\beta^{-}$ decay is described using "feeding fractions", labeled f$_{\ell}$. The feeding fractions describe the ratio of electrons populating each excited state, and sum of the feeding fractions is normalized to 1. Since population of the ground state does not produce gamma rays, it does not affect gamma ray detection and is set to 0. Once an excited energy state is populated, the probability of each subsequent emission is described using branching ratios, labeled $x_{\ell,k}$ in Figure \ref{simple}. The sum of all branching ratios for each $\ell^{th}$ state is equal to 1.
+
+Since summing out reduces the number of detections of a full energy gamma emission and summing in increases the number of counts, the measured peak intensity (total number of counts) for a particular $\gamma$ ray photopeak is
+
+\begin{equation}
+\textbf{S}_{\ell,k} = \textbf{S}_{\ell,k}^{0} - \textbf{S}_{\ell,k}^{-} + \textbf{S}_{\ell,k}^{+} ,
+\label{S}
+\end{equation}
+where \textbf{S}$_{\ell,k}^{0}$ is the intensity expected without summing, \textbf{S}$_{\ell,k}^{-}$ is the contribution due to summing out, and \textbf{S}$_{\ell,k}^{+}$ is the contribution due to summing in. 
+
+\subsection{No Summing}
+
+The intensity of a measured energy photopeak without any summing (\textbf{S}$_{\ell,k}^{0}$) depends on the probability of population of the $\ell^{th}$ energy state ($p_{\ell,k}$), and the probability of $\gamma_{\ell,k}$ emission ($\varepsilon_{\ell,k}$). Using the example in Figure \ref{simple}, the anticipated peak intensity of $\gamma_{1,0}$ can be described simply as a product of these quantities:
+
+\begin{equation}
+\textbf{S}_{1,0}^{0}  = p_{1,0} * \varepsilon_{1,0}.
+\label{s1}
+\end{equation} 
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{paths10.png}
+	\caption{Simple decay scheme highlighting the two decay paths that populate the 1$^{st}$ energy state. The red path is a result of direct $\beta^{-}$ decay feeding, and the green path involves $\beta^{-}$ population of the 2$^{nd}$ energy state and subsequent emission of $\gamma_{2,1}$.}
+\label{paths}
+\end{figure}
+
+The probability of decay producing $\gamma_{1,0}$ can be expanded by describing all possible decay paths that populate the 1$^{st}$ energy state. Figure \ref{paths} shows the two decay paths: one path is by direct population via $\beta^{-}$ decay ($f_{1}$), and another is by population of the 2$^{nd}$ energy state ($f_{2}$) followed by a $\gamma_{2,1}$ emission (x$_{2,1}$). Substituting $p_{1,0}$ for $(f_{1} + f_{2} x_{2,1})$ in equation \ref{s1}, the intensity of $\gamma_{1,0}$ then becomes
+
+\begin{equation}
+\textbf{S}_{1,0}^{0} = (f_{1} + f_{2} \text{x}_{2,1}) * \varepsilon_{1,0}.
+\label{s2}
+\end{equation} 
+
+To find the probability of $\gamma_{1,0}$ detection, the probability of $\gamma_{1,0}$ emission from the 1$^{st}$ energy state (x$_{1,0}$) is combined with the detection efficiency of at the energy of $\gamma_{1,0}$'s photopeak (or the detector's ``peak efficiency", $\epsilon^{p}_{1,0}$). Substituting $\varepsilon_{1,0}$ for $x_{1,0} \epsilon^{p}_{1,0}$ in equation \ref{s2},
+
+\begin{equation}
+\textbf{S}_{1,0}^{0} = (f_{1} + f_{2} \text{x}_{2,1}) * \text{x}_{1,0} \epsilon^{p}_{1,0}.
+\label{s3}
+\end{equation} 
+Similarly, the relative intensities of $\gamma_{2,0}$ and $\gamma_{2,1}$ without summing are 
+
+\begin{align}
+&\textbf{S}_{2,0}^{0} = f_{2} * \text{x}_{2,0} \epsilon^{p}_{2,0}
+&\textbf{S}_{2,1}^{0} = f_{2} * \text{x}_{2,1} \epsilon^{p}_{2,1}.
+\label{probs}
+\end{align}
+
+\subsection{Summing In}
+
+In the simple example above, only the largest peak, $\gamma_{2,0}$, will experience any significant summing in. Thus, 
+
+\begin{equation}
+\textbf{S}_{1,0}^{+} = \textbf{S}_{2,1}^{+} = 0
+\label{s+}
+\end{equation}
+
+To find the counts of $\gamma_{2,0}$ caused by summing in, the probability of nearly simultaneous emissions of $\gamma_{2,1}$ and $\gamma_{1,0}$ needs to be determined. Since the lifetimes of each excited state are very short, it is expected that most coincident emissions will occur after a cascade of low-energy emissions that sum to a higher energy emission. For a simple system, this occurs when a $\gamma_{2,1}$ emission is immediately followed by $\gamma_{1,0}$, as shown in Figure \ref{sum_in}. 
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{summing_in.png}
+	\caption{Simple decay scheme highlighting the path of decay producing nearly simultaneous detection of $\gamma_{2,1}$ and $\gamma_{1,0}$. This involves $\beta^{-}$ population of the 2$^{nd}$ energy state and subsequent emission of $\gamma_{2,1}$ (green), followed by the emission of $\gamma_{1,0}$ (red).}
+\label{sum_in}
+\end{figure}
+
+The probability of detecting the full energies of the summed emissions depends on three factors: the probability of $\gamma_{2,1}$ decay, the probability of $\gamma_{2,1}$ photopeak detection, and the probability of the following $\gamma_{1,0}$ photopeak detection:
+
+\begin{equation}
+\textbf{S}_{2,0}^{+} = p_{2,1} \varepsilon_{2,1}*\varepsilon_{1,0}
+\label{s+}
+\end{equation}
+Expanding equation \ref{s+} as before, the counts of $\gamma_{2,0}$ attributed to summing in becomes
+
+\begin{equation}
+\textbf{S}_{2,0}^{+} = f_{2} \text{x}_{2,1} \epsilon^{p}_{2,1} * \text{x}_{1,0} \epsilon^{p}_{1,0}.
+\label{s+2}
+\end{equation}
+
+Since coincidence summing only affects gamma rays hitting the same detector, the probability of detecting each subsequent $\gamma$ ray is divided by the number of detectors spanning the array. When using N individual detectors, equation \ref{s+2} becomes
+
+\begin{equation}
+\textbf{S}_{2,0}^{+} = \frac{1}{N} f_{2} x_{2,1} \epsilon^{p}_{2,1} * x_{1,0} \epsilon^{p}_{1,0}.
+\label{s+3}
+\end{equation}
+
+\subsection{Summing Out}
+%Very few (if any) partial gamma emissions will be coincident with the highest energy $\gamma$ emission in a spectrum, so for the simple system, 
+
+%\begin{equation}
+%\textbf{S}_{2,0}^{-} = 0
+%\end{equation}
+
+As previously described, summing out is caused by the simultaneous detection of a full energy $\gamma$ peak and \textit{any} an additional $\gamma$ ray energy. 
+
+In the simple decay scheme shown in Figure \ref{sum_out}, $\gamma_{2,0}$ and $\gamma_{1,0}$ cannot be produced at the same time, so $\gamma_{2,0}$ detection will not contribute to summing out. To determine the degree of summing out for $\gamma_{1,0}$, the probability of photopeak detection of $\gamma_{1,0}$ is multiplied by the probability of $\gamma_{2,1}$ emission and the probability of $\gamma_{2,1}$ detection anywhere in the spectrum ($\varepsilon^{T}_{2,1}$):
+
+\begin{equation}
+\textbf{S}_{1,0}^{-} = \varepsilon_{1,0} * p_{2,1} * \varepsilon^{T}_{2,1} 
+\label{s-}
+\end{equation}
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{summing_out.png}
+	\caption{Simple decay scheme highlighting the path of decay producing nearly simultaneous detection of $\gamma_{2,1}$ and $\gamma_{1,0}$. This involves $\beta^{-}$ population of the 2$^{nd}$ energy state and subsequent emission of $\gamma_{2,1}$ (green), followed by the emission of $\gamma_{1,0}$ (red).}
+\label{sum_out}
+\end{figure}
+
+The probability of $\gamma_{2,1}$ detection at some energy level is determined by its probability of emission ($x_{2,1}$) and the likelihood that some part of the $\gamma_{2,1}$ energy will be counted by the detector (referred to as the ``total efficiency" of $\gamma_{2,1}$ detection, $\epsilon^{t}_{2,1}$). The probabilities of $\gamma_{1,0}$ detection and $\gamma_{2,1}$ production ($p_{2,1}$) are rewritten as before, using Figure \ref{sum_out} to determine the decay path producing $\gamma_{2,1}$. Substituting this information into equation \ref{s-},
+
+\begin{equation}
+\textbf{S}_{1,0}^{-} = x_{1,0} \epsilon^{p}_{1,0} * f_{2} * x_{2,1} \epsilon^{t}_{2,1} 
+\label{s-3}
+\end{equation}
+
+Similarly, the counts of $\gamma_{2,1}$ lost due to summing out depend on the probability of $\gamma_{2,1}$ photopeak detection ($x_{2,1} \epsilon^{p}_{2,1}$), the probability of $\gamma_{1,0}$ production ($f_{2} x_{2,1} + f_{1}$), and the probability of total $\gamma_{1,0}$ detection ($x_{1,0} \epsilon^{t}_{1,0}$):
+
+\begin{equation}
+\textbf{S}_{2,1}^{-} = x_{2,1} \epsilon^{p}_{2,1} * (f_{2} x_{2,1} + f_{1}) * x_{1,0} \epsilon^{t}_{1,0} 
+\label{s-4}
+\end{equation}
+
+As described in the previous section, the probability of detection for each coincident $\gamma$ ray must be divided by the number of detectors used, so to describe the total contributions due to summing out, equations \ref{s-3} and \ref{s-4} become
+
+\begin{align}
+\textbf{S}_{1,0}^{-} &= \frac{1}{N} x_{1,0} \epsilon^{p}_{1,0} * f_{2} * x_{2,1} \epsilon^{t}_{2,1} \\
+\textbf{S}_{2,1}^{-} &= \frac{1}{N} x_{2,1} \epsilon^{p}_{2,1} * (f_{2} x_{2,1} + f_{1}) * x_{1,0} \epsilon^{t}_{1,0}. 
+\label{sumout}
+\end{align}
+
+\subsection{Summary}
+First, the terms described in the sections above are aggregated and defined in Table \ref{probabilities} to clarify the relationships between the basic probabilistic variables used in Gilmore's text and the expanded terms used in Semkow's text to describe these variables. 
+
+\begin{table}[h!]
+\caption[Definitions of terms]{Definitions of terms logically, as described in Gilmore, and as described in Semkow. Items listed as "--" are not explicitly described in the text.} 
+\begin{center}
+\begin{tabular}{| p{3 cm} | p{4.5 cm} | l | l |}
+\hline
+\textbf{Element} & \textbf{Definition} & \textbf{Gilmore variable} & \textbf{Semkow variable} \\ 
+\hline
+\hline
+Feeding fraction & Initial population of $\ell^{th}$ state by $\beta^{-}$ decay (normalized to 1) &--& f$_{\ell}$ \\ 
+\hline
+Branching ratio & Probability of decay to $k^{th}$ state from $\ell^{th}$ state (normalized to 1) $\ell$ & -- & x$_{\ell,k}$ \\
+\hline
+Peak efficiency & Efficiency of $\gamma$ detection at its photopeak. & -- & $\epsilon^{p}_{\ell,k}$ \\
+\hline
+Total efficiency & Efficiency of $\gamma$ detection at any energy (including background detection of partial $\gamma$ energy deposits) & -- & $\epsilon^{t}_{\ell,k}$ \\
+\hline
+Emission probability	& Likelihood that $\gamma_{\ell,k}$ emission will occur & p$_{\ell,k}$ & $\Sigma$ f$_{\ell,k}$x$_{\ell,k}$  \\
+\hline
+Peak probability & Probability of $\gamma$ detection at expected photopeak & $\varepsilon_{\ell,k}$ & x$_{\ell,k}$$\epsilon^{p}_{\ell,k}$\\
+\hline
+Detection probability & Probability of $\gamma$ detection at some energy level & $\varepsilon^{T}_{\ell,k}$ & x$_{\ell,k}$$\epsilon^{t}_{\ell,k}$\\
+\hline
+Conversion coefficient & Likelihood of conversion from gamma ray into other particle in detector & 0 & $\alpha_{\ell,k}$ \\
+\hline 
+\end{tabular}
+\end{center}
+\label{probabilities}
+\end{table}
+
+Then, the total measured counts expected for each $\gamma$ emission in the simple system are described by multiplying the total probabilities for each emission (using equation \ref{S}) by the source disintegration rate, $R$. Thus, the total counts expected for each $\gamma$ emission in the simple example are
+
+\begin{align}
+\textbf{S}_{1,0} &= R \left((f_{1} + f_{2} x_{2,1}) x_{1,0} \epsilon^{p}_{1,0} - \frac{1}{N} x_{1,0} \epsilon^{p}_{1,0} * f_{2} * x_{2,1} \epsilon^{t}_{2,1}\right) \\
+\label{total1}
+\textbf{S}_{2,1} &= R \left(f_{2} x_{2,1} \epsilon^{p}_{2,1} - \frac{1}{N} x_{2,1} \epsilon^{p}_{2,1} * (f_{2} x_{2,1} + f_{1}) * x_{1,0} \epsilon^{t}_{1,0}\right) \\
+\textbf{S}_{2,0} &= R \left(f_{2} x_{2,0} \epsilon^{p}_{2,0} + \frac{1}{N} f_{2} x_{2,1} \epsilon^{p}_{2,1} * x_{1,0} \epsilon^{p}_{1,0}\right).
+\label{total}
+\end{align}
+
+
+\section{Comparison of Mathematical Correction Methods}
+
+To verify that program written to execute Semkow's correction method produces reasonable results for simple systems, the equations describing the total counts of gamma rays from the simple example (equations  \ref{total1}-\ref{total}) are used to calculate the expected photopeak intensities for a particular source and detector array, and the results are compared to the output of the program. 
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{simplified_co.png}
+	\caption{a) Full decay scheme for Co-60. b) Simplified Co-60 decay scheme achieved by removing the 2158.610 keV state.}
+\label{simple_co}
+\end{figure}
+
+To compare these two methods, data for Co-60 gamma emission were modified to simplify the Co-60 decay scheme \cite{nuclide-co60}. As shown in Figure \ref{simple_co}, the three-level decay scheme was modified by removing the excited state that is least likely to be populated (n=2; E = 2158.610 keV). The data for the remaining gamma emissions are in Table \ref{simpledata}, alongside parameters of the GRIFFIN TRIUMF HPGe detection array.
+
+\begin{table}[h!]
+\caption[Simplified Data]{Simplified Co-60 scheme data and detector array data from the GRIFFIN TRIUMF detector used for comparison calculations \cite{GRIFFIN}.} 
+\begin{center}
+\begin{tabular}{| l | l |}
+\hline
+Simplified Co-60 data: & Detector array data: \\
+\hline
+\hline
+$f_{2}$ = 0.9988 & $N$ = 64 \\
+$f_{1}$ = 0.0012 & $\epsilon^{t}$ = 0.4 \\
+$x_{2,0}$ = 2.00300447x10-8 & $\epsilon^{p}_{2,0}$ = 0.0676444 \\
+$x_{2,1}$ = 0.999999980 & $\epsilon^{p}_{2,1}$ = 0.11635693 \\
+$x_{1,0}$ = 1 & $\epsilon^{p}_{1,0}$ = 0.10756144 \\
+$R$ = 100 &  \\
+\hline
+\end{tabular}
+\end{center}
+\label{simpledata}
+\end{table}
+
+Using the data from Table \ref{simpledata} and equations \ref{total1}-\ref{total}, the total counts of peaks for with coincidence summing were found to be 
+
+\begin{align}
+\textbf{S}_{1,0}(1332.508 keV) &= 10.69 \\
+\textbf{S}_{2,1}(1173.240 keV) &=  11.55 \\
+\textbf{S}_{2,0}(2505.748 keV) &= 0.01953,
+\label{total}
+\end{align}
+and the counts without summing were
+
+\begin{align}
+\textbf{S}_{1,0}^{0}(1332.508 keV) &=  10.76 \\
+\textbf{S}_{2,1}^{0}(1173.240 keV) &=  11.62 \\
+\textbf{S}_{2,0}^{0}(2505.748 keV) &= 1.353 \times 10^{-7}.
+\label{total}
+\end{align}
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[width=14cm]{placeholder_plot.png}
+	\caption{This is a placeholder! Current code cannot correctly calculate summing in!}Photopeak energies vs Counts cetected for simplified Co-60 decay scheme. Dark grey counts were found using Gilmore's method, and light grey counts were found using the program. Solid bars indicate counts without summing, and hatched bars indicate total measured counts.}
+\label{plot1}
+\end{figure}
+
+\chapter{3. Setup for Correction Scheme}
 Defined quantities input by the user:
 peak efficiencies $\epsilon^{p}_{mn}$, total efficiency of detector $\epsilon^{t}_{mn}$, feeding radios for decay $f_{mn}$, branching ratios $x_{mn}$, and conversion coefficients $\alpha_{mn}$.
 
